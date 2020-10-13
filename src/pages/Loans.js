@@ -63,7 +63,9 @@ class Loans extends Component {
       visible: false,
     });
 
-    const add_data = {payee: this.props.activeUser.id, payor: this.state.add_payee, date:'2019-06-30', // date: this.state.add_date,
+    const userid = MyConsts.getTokens().userid;
+    
+    const add_data = {payee: userid, payor: this.state.add_payee, date:'2019-06-30', // date: this.state.add_date,
                     amount: this.state.add_amount, description: this.state.add_description, status:'P'}
     console.log('add_data: ' , add_data)
 
