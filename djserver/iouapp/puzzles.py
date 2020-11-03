@@ -47,7 +47,7 @@ def isPrime(i):
             return False
         import math
         sqrt = int(math.sqrt(i) // 1)
-        for s in range(3,sqrt,2):  # check odd vals, or all prior primes + new primes
+        for s in range(3,sqrt+1,2):  # check odd vals, or all prior primes + new primes
             if (i % s == 0):
                 return False
 #       primes.add(i)
@@ -60,20 +60,34 @@ def nextPrime(i):
     else:
         return nextPrime(i+1)
 
+def factorize(i):
+    if (i == 0):
+        return []
+    elif (isPrime(i)):
+        return [i]
+    else:
+        d = 2
+        while (i % d != 0):
+            d = nextPrime(d+1)
+        rem = i // d
+        return factorize(d)+factorize(rem)
+
+for i in range(1,50):
+    print(f'factorize {i} -> {factorize(i)}')
+
+print(isPrime(25))
+# print (tailrec([1,2,3],2))
+# print (tailrec((x**2 for x in range(10)),3))
+
+# print (tail([1,2,3],2))
+# print (tail((x**2 for x in range(10)),3)) 
+
+# print (f'num {9} is prime? {isPrime(9)}')
+
+# for i in range(90,100):
+#     print (f'num {i} is prime? {isPrime(i)}')
 
 
-print (tailrec([1,2,3],2))
-print (tailrec((x**2 for x in range(10)),3))
-
-print (tail([1,2,3],2))
-print (tail((x**2 for x in range(10)),3)) 
-
-print (f'num {9} is prime? {isPrime(9)}')
-
-for i in range(90,100):
-    print (f'num {i} is prime? {isPrime(i)}')
-
-
-for i in range (90,100):
-    print(f'next prime of {i} is {nextPrime(i)}')
+# for i in range (90,100):
+#     print(f'next prime of {i} is {nextPrime(i)}')
 

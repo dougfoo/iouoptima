@@ -16,3 +16,4 @@ package-lock.json
 env
 *.pyc
 server/mysite/db.sqlite3
+**/settings.json
